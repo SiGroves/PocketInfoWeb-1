@@ -1,0 +1,59 @@
+
+		
+		#wipNumber{
+	        -moz-border-radius: 10px;
+            border-radius: 10px;
+			}
+		
+		.autocomplete-items {
+		  z-index: 99;
+		  /*position the autocomplete items to be the same width as the container:*/
+		  left: 10px;
+		  right:0px;
+		  position:absolute;
+		  max-height:30em;
+		  overflow: auto;
+		}
+		.autocomplete{	
+	        -moz-border-radius: 10px;
+            border-radius: 10px;
+		}
+		.autocomplete-items li{
+			cursor: pointer; 
+			background-color:white;
+		}
+		.autocomplete-items li:hover {
+         	background-color: #afafaf;  
+        }
+		.toolImage{height:48px;
+		    -webkit-transition: all .1s ease-in-out;
+			-moz-transition: all .1s ease-in-out;
+			-o-transition: all .1s ease-in-out;
+			-ms-transition: all .1s ease-in-out;
+			z-index: 10;
+			overflow: hidden;
+			background-color:transparent;
+		}
+		.transition{
+			transform:scale(3);
+			z-index:100;
+			postion:relative;
+			border: 1px silver outset;
+			background-color:white;
+		}
+		.smallerFont{font-size:smaller;}
+	
+	[animate-on-change] {
+	  transition: all 1s;
+	  -webkit-transition: all 1s;
+	}
+	[animate-on-change].changed {
+	  	background: #ffe259;  /* fallback for old browsers */
+		background: -webkit-linear-gradient(to top, #ffa751, #ffe259);  /* Chrome 10-25, Safari 5.1-6 */
+		background: linear-gradient(to top, #ffa751, #ffe259); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+	  transition: none;
+	  -webkit-transition: none;
+	}
+
+	.aRight{text-align:right;}
