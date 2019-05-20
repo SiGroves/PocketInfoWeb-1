@@ -1,11 +1,11 @@
 
 		
-		#wipNumber{
+#wipNumber{
 	        -moz-border-radius: 10px;
             border-radius: 10px;
 			}
 		
-		.autocomplete-items {
+.autocomplete-items {
 		  z-index: 99;
 		  /*position the autocomplete items to be the same width as the container:*/
 		  left: 10px;
@@ -14,18 +14,22 @@
 		  max-height:30em;
 		  overflow: auto;
 		}
-		.autocomplete{	
+
+.autocomplete{	
 	        -moz-border-radius: 10px;
             border-radius: 10px;
 		}
-		.autocomplete-items li{
+
+.autocomplete-items li{
 			cursor: pointer; 
 			background-color:white;
 		}
-		.autocomplete-items li:hover {
+
+.autocomplete-items li:hover {
          	background-color: #afafaf;  
         }
-		.toolImage{height:48px;
+
+.toolImage{height:48px;
 		    -webkit-transition: all .1s ease-in-out;
 			-moz-transition: all .1s ease-in-out;
 			-o-transition: all .1s ease-in-out;
@@ -34,14 +38,16 @@
 			overflow: hidden;
 			background-color:transparent;
 		}
-		.transition{
+
+.transition{
 			transform:scale(3);
 			z-index:100;
 			postion:relative;
 			border: 1px silver outset;
 			background-color:white;
 		}
-		.smallerFont{font-size:smaller;}
+		
+.smallerFont{font-size:smaller;}
 	
 	[animate-on-change] {
 	  transition: all 1s;
