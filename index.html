@@ -100,27 +100,17 @@
 							<td>{{currentUser.userName}}</td>
 							<td  class="aRight" colspan="3">{{currentUser.userId}}</td>
 						</tr>
+						<tr><td>{{stat.login}}</td><td  class="aRight" colspan="3">{{stat.userName}}</td></tr>
+						<tr><td>{{currentUser.role}}</dh><td  class="aRight" colspan="3">{{currentUser.brand}}</td></tr>
+						<tr><th>Loan Tool Usage</th><td  class="aRight">{{stat.ltpUse | number}}</td><th>Current Bookings</th><td  class="aRight">{{stat.ltpCurrent}}</td></tr>
+						<tr><th>Web Tickets Raised</th><td  class="aRight">{{stat.tiwTicketsRaised | number}}</td><th>Closed Tickets</th><td  class="aRight">{{stat.tiwTicketsClosed}}</td></tr>
+						<tr><th>Mandatory Tools</th><td class="aRight">{{toolList.length | number}}</td><th>Logged</th><td  class="aRight">{{stat.loggedTools | number}}</td></tr>
 						<tr>
-							<td>{{stat.login}}</td><td  class="aRight" colspan="3">{{stat.userName}}</td>
+							<th>Active Jobs</th><td  class="aRight">{{wipList.length | number}}</td>
+							<th>Workshop App Effectiveness</th><td>{{stat.loggedTools / toolList.length * 100 | number:0}}%</td>
 						</tr>
-						<tr>
-							<td>{{currentUser.role}}</dh><td  class="aRight" colspan="3">{{currentUser.brand}}</td>
-						</tr>
-						<tr>
-							<th>Loan Tool Usage</th><td  class="aRight">{{stat.ltpUse | number}}</td>
-							<th>Current Bookings</th><td  class="aRight">{{stat.ltpCurrent}}</td>
-						</tr>
-						<tr>
-							<th>Web Tickets Raised</th><td  class="aRight">{{stat.tiwTicketsRaised | number}}</td>
-							<th>Closed Tickets</th><td  class="aRight">{{stat.tiwTicketsClosed}}</td>
-						</tr>
-						<tr>
-							<th>Mandatory Tools</th><td class="aRight">{{toolList.length | number}}</td>
-							<th>Logged</th><td  class="aRight">{{stat.loggedTools | number}}</td>
-						</tr>
-						<tr>
-							<th>Loan Tools</th><td  class="aRight">{{ltpList.length | number}}</td>
-							<th>Stored Jobs</th><td  class="aRight">{{wipList.length | number}}</td>
+						<tr><th>Active Service Measures</th><td  class="aRight">{{stat.activeServiceMeasures}}</td>
+							<th>Completed Service Measures</th><td  class="aRight">{{stat.completedServiceMeasures}}</td>
 						</tr>
 					</tbody>
 				</table>
@@ -150,6 +140,7 @@ Server: {{serverId}}
 				<li>Available Options</li>
 				<li data-icon="user"><a id="btnResetAll" class="btn btn-secondary" ng-click="resetAll()">Log Out and Reset</a></li>
 			    <!-- li data-icon="refresh"><a id="btnRefreshIssueList" class="btn btn-secondary" ng-click="refreshIssueList()">Refresh Issues</a></li -->
+			    <li data-icon="refresh"><a id="btnRefreshStatList" class="btn btn-secondary" ng-click="refreshStatList()">Refresh Key Statistics</a></li>
 			    <li data-icon="refresh"><a id="btnRefreshToolsList" class="btn btn-secondary" ng-click="refreshToolsList()">Refresh List Of Tools</a></li>
 			    <li data-icon="refresh"><a id="btnRefreshProductsList" class="btn btn-secondary" ng-click="refreshProductList()">Refresh Products</a></li>
 			    <li data-icon="refresh"><a id="btnRefreshNewsList" class="btn btn-secondary" ng-click="refreshNewsList()">Refresh News</a></li>
@@ -272,6 +263,8 @@ Server: {{serverId}}
 	    				<tr  ng-repeat="tool in wip.tools track by $index">
 	    					<td>{{tool.partNumber}}<br/>{{tool.toolNumber}}</td>
 	    					<td>{{tool.partDescription}}</td>
+	    						<td><img ng-src="https://toolsinfoweb.co.uk/mandatoryList/content/images/toolsList/{{imageName(tool.toolType, tool.partNumber, tool.toolNumber)}}.png" class="toolImage img-zoom" onerror="this.src='https://toolsinfoweb.co.uk/mandatoryList/content/images/icons/rudeFileNotFound.png'; return false" /></td>		
+							
 	    					<td>{{tool.location}}<br/>{{tool.lastWIP}}</td>
 
 	    				</tr>
