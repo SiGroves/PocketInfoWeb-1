@@ -7,9 +7,15 @@
     <author email="support@helpfulconsultants.com" href="http://helpfulconsultants.com">
         Helpful Consultants
     </author>
+    
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="14" />
+    
+    <!-- all platforms -->
+    <preference name="phonegap-version" value="cli-8.1.1" />
+    
+    
     <plugin name="cordova-plugin-battery-status" source="npm" spec="~1.1.1" />
     <plugin name="cordova-plugin-camera" source="npm" spec="~2.1.1" />
     <plugin name="cordova-plugin-media-capture" source="npm" spec="~1.2.0" />
