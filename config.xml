@@ -59,7 +59,7 @@
         <icon height="76" platform="ios" src="res/icon/ios/workshopEquipment-76x76@2x.png" width="76" />
         <icon height="152" platform="ios" src="res/icon/ios/workshopEquipment-76x76@2x.png" width="152" />
         <icon height="29" platform="ios" src="res/icon/ios/icon-small.png" width="29" />
-        <icon height="58" platform="ios" src="res/icon/ios/workshopEquipment-60x60@3x.png" width="58" />
+        <icon height="58" platform="ios" src="res/icon/ios/workshopEquipment_60x60@3x.png" width="58" />
         <icon height="87" platform="ios" src="res/icon/ios/workshopEquipment-76x76@2x.png" width="87" />
         <splash height="1136" platform="ios" src="res/screen/ios/Default-568h@2x~iphone.png" width="640" />
         <splash height="1334" platform="ios" src="res/screen/ios/Default-667h.png" width="750" />
