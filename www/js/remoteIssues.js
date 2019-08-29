@@ -213,13 +213,31 @@ app.controller("IssuesController", function($scope, $http, ngProgressFactory) {
 	        	if($scope.productList){
 					$scope.productList.length=0;
 					localStorage.removeItem($scope.storageItemProducts);
+
 				};
 	        		//console.log(response.data);
 	              $scope.productList = response.data; 	
-			  	  $scope.loadingMessage='';
+	              $scope.loadingMessage='';
 			  	  localStorage.setItem($scope.storageItemProducts, JSON.stringify($scope.productList));
-			  	  $scope.whileLoading=true;
+			  	  //$( "#ulProductList" ).listview().listview('refresh');
+
+			  	//$.document.find("#ulProductList").listview();
+			  	//console.log($scope.productList);
+				//$('#ulProductList').hide();
+				
+				$("#ulProductList").trigger('create');
+				//console.log('created');
+				$("#ulProductList" ).listview();
+				//console.log('made to listview');
+				$("#ulProductList" ).listview().listview('refresh');
+				//console.log('refreshed');
+				//$("#ulProductList, #ulProductList ul, #ulProductList ul li" ).trigger('updatelayout');
+				$('#ulProductList').listview().listview('refresh').show().trigger("updatelayout");
+				//console.log('layoutupdated');
+
+				  $scope.whileLoading=true;
 			  	  $scope.progressbar.complete();
+
 			  	  //console.log('Product List loaded');
 			  	  //console.log($scope.productList);
 	        }, function(response) {
@@ -227,6 +245,7 @@ app.controller("IssuesController", function($scope, $http, ngProgressFactory) {
 	          $scope.progressbar.complete();
 	      });
 	}
+
 
 	$scope.cleanDisplay = function(txt){
 		if (txt){
@@ -270,7 +289,7 @@ app.controller("IssuesController", function($scope, $http, ngProgressFactory) {
 					$scope.statList.length=0;
 					localStorage.removeItem($scope.storageItemStats);
 				};
-	        		//console.log(response.data);
+	        	  //console.log(response.data);
 	              $scope.statList = response.data; 	
 			  	  $scope.loadingMessage='';
 			  	  localStorage.setItem($scope.storageItemStats, JSON.stringify($scope.statList));
@@ -296,7 +315,7 @@ app.controller("IssuesController", function($scope, $http, ngProgressFactory) {
 		//console.log(theUrl);
 	  	$http({method: 'get', url: theUrl}).
 	        then(function(response) {
-	        	console.log(response);
+	        	//console.log(response);
 	        	if($scope.campaignList){
 					$scope.campaignList.length=0;
 					localStorage.removeItem($scope.storageItemCampaigns);
@@ -596,6 +615,9 @@ app.controller("IssuesController", function($scope, $http, ngProgressFactory) {
 			$scope.hideToolMatch = false;
 			var output = [];
 			//console.log('seeking',string);
+			//console.log('or',string.replace(/VAS|VAG/gi, ""));
+			string=string.replace(/VAS|VAG/gi, "");
+
 			//console.log('in',$scope.toolList);
 			//angular.forEach($scope.toolList, function(tool) {
 				angular.forEach(_.sortBy($scope.toolList, 'partNumber'), function(tool) {
@@ -680,6 +702,16 @@ app.directive('animateOnChange', function($timeout) {
       }
     });
   };
+});
+
+app.directive('repeatDone', function () {
+    return function (scope, element, attrs) {
+        // When the last element is rendered
+        console.log('hit on repeatDone directive');
+        if (scope.$last) { 
+            element.parent().parent().trigger('create');
+        }
+    }
 });
 
 app.filter('html',function($sce){
