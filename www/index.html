@@ -308,100 +308,94 @@ Server: {{serverId}}
 
     </div>
 </div>
+		      
+		      
 <!-- --------  LTP Items  -----------------------   -->
 <div id="ltpItems" data-title="Loan Tool Programme" data-role="page">
-    <div data-role="header" data-position="fixed" data-theme="a">
-          <a href="#Info" data-icon="home" data-iconpos="notext" data-direction="reverse" data-transition="slide"></a>
-      <h1>Loan Tools</h1>
-      </div><!-- /header -->
-      <div role="main" class="ui-content jqm-content jqm-fullwidth">
-        <input type="text" name="searchLTP" id="searchLTP" ng-model="searchLTP" data-type="search" placeholder="Search Loan Tools ..."/>
+		<div data-role="header" data-position="fixed" data-theme="a">
+	        <a href="#Info" data-icon="home" data-iconpos="notext" data-direction="reverse" data-transition="slide"></a>
+			<h1>Loan Tools</h1>
+	    </div><!-- /header -->
+	    <div role="main" class="ui-content jqm-content jqm-fullwidth">
+	    	<input type="text" name="searchLTP" id="searchLTP" ng-model="searchLTP" data-type="search" placeholder="Search Loan Tools ..."/>
 
-        <div class=" ui-bar ui-bar-a">
-          <div class="ui-grid-b">
-            <div class="ui-block-a" style="width:33%;"><div class="" >Loan Tool Number</div></div>
-            <div class="ui-block-b" style="width:66% !important; "><div class="" >Kit Description</div></div>  
-        </div><!-- /grid-b -->
-        <div class="ui-grid-b" >
-            <div class="ui-block-a"><div class="" >Order Number</div></div>
-            <div class="ui-block-b"><div class="" >Tool Number</div></div>
-            <div class="ui-block-c"><div class="" >Next Available Date</div></div>
-        </div><!-- /grid-b -->
-      </div>
-        <div class=" ui-bar ui-bar-b" style="font-weight:normal;" ng-repeat="ltpItem in ltpList| filter: searchLTP | orderBy:'loanToolNo'">
-          <div class="ui-grid-b" style="padding-top:20px; font-weight:bold;">
-            <div class="ui-block-a" style="width:33%;"><div class=""><a ng-href="#chosenLTP" ng-click="setChosenLtp(ltpItem)">{{ltpItem.loanToolNo}}</a></div></div>
-            <div class="ui-block-b" style="width:66%;"><div class="" >{{ltpItem.toolDescription}}</div></div>           
-        </div><!-- /grid-b -->
-        <div class="ui-grid-b" >
-            <div class="ui-block-a"><div class="" >{{ltpItem.orderPartNo}}</div></div>
-            <div class="ui-block-b"><div class="" >{{ltpItem.supplierPartNo}}</div></div>
-            <div class="ui-block-c"><div class="" >{{handleDate(ltpItem.nextAvailableDate)}}</div></div>
-        </div><!-- /grid-b -->
-      </div>
-
-        <!-- pre>{{ltpList | json}}</pre -->
-        
+	    	<div class=" ui-bar ui-bar-a">
+		    	<div class="ui-grid-b">
+				    <div class="ui-block-a" style="width:33%;"><div class="" >Loan Tool Number</div></div>
+				    <div class="ui-block-b" style="width:66% !important; "><div class="" >Kit Description<br/>Order Number<br/>Tool Number</div></div>  
+				</div><!-- /grid-b -->
+			</div>
+	    	<div class=" ui-bar ui-bar-b" style="font-weight:normal;" ng-repeat="ltpItem in ltpList| filter: searchLTP | orderBy:'loanToolNo'">
+		    	<div class="ui-grid-b" style="padding-top:20px;">
+				    <div class="ui-block-a" style="width:33%;">
+				    	<a class="ui-btn ui-mini" ng-href="#chosenLTP" ng-click="setChosenLtp(ltpItem)">{{ltpItem.loanToolNo}}</a>
+				    </div>
+				    <div class="ui-block-b" style="width:66%;">
+				    	<div class="" >
+					    	<strong>{{ltpItem.toolDescription}}</strong><br/>
+					    	{{ltpItem.orderPartNo}}<br/>
+					    	{{ltpItem.supplierPartNo}}
+				    	</div>
+				    </div>				    
+				</div><!-- /grid-b -->
+			</div>
         </div>
-
 </div>
 
 
 
 
 <!-- --------  Chosen LTP Details -----------------------   -->
-<div id="chosenLTP" data-title="Loan Tool Item Details" data-role="page" data-dialog="true">
-    <div data-role="header" data-position="fixed" data-theme="a">
-      
-      <h1></h1>
-        </div><!-- /header -->
-      <div role="main" class="ui-content jqm-content">
-        <div class="ui-grid-a" style="">
-          <div class="ui-block-a"><div class="" >Category</div></div>
-            <div class="ui-block-b"><div class="" >{{chosenLtp.icName}}</div></div>
-         </div><!-- /grid-b -->
-        <div class="ui-grid-a" style="">
-          <div class="ui-block-a"><div class="" >LTP Kit Number</div></div>
-            <div class="ui-block-b"><div class="" >{{chosenLtp.loanToolNo}}</div></div>
-         </div><!-- /grid-b -->
-         <div class="ui-grid-a" style="">
-          <div class="ui-block-a"><div class="" >Description</div></div>
-            <div class="ui-block-b"><div class="" >{{chosenLtp.toolDescription}}</div></div>
-         </div><!-- /grid-b -->
-        <div class="ui-grid-a" style="">
-          <div class="ui-block-a"><div class="" >Notes</div></div>
-            <div class="ui-block-b"><div class="" >{{chosenLtp.commentary}}</div></div>
-         </div><!-- /grid-b -->
-        <div class="ui-grid-a" style="">
-          <div class="ui-block-a"><div class="" >Order Number</div></div>
-            <div class="ui-block-b"><div class="" >{{chosenLtp.orderPartNo}}</div></div>
-         </div><!-- /grid-b -->
-        <div class="ui-grid-a" style="">
-          <div class="ui-block-a"><div class="" >Part Number</div></div>
-            <div class="ui-block-b"><div class="" >{{chosenLtp.supplierPartNo}}</div></div>
-         </div><!-- /grid-b -->
-        <div class="ui-grid-a" style="">
-          <div class="ui-block-a"><div class="" >Next Available Date</div></div>
-            <div class="ui-block-b"><div class="" >{{handleDate(chosenLtp.nextAvailableDate)}}</div></div>
-         </div><!-- /grid-b -->
-        <div class="ui-grid-a" style="">
-          <div class="ui-block-a"><div class="" >Kit Price: GBP</div></div>
-            <div class="ui-block-b"><div class="" >{{chosenLtp.kitPrice | number}}</div></div>
-         </div><!-- /grid-b -->
-        <div class="ui-grid-a" style="" ng-show="currentUser.role=='Manager'">
-          <div class="ui-block-a"><div class="" >Applicability</div></div>
-            <div class="ui-block-b"><div class="" ><table>
-                                  <tr><th>AU </th><th>VW </th><th>CV </th><th>SK </th><th>SE </th></tr>
-                                  <tr><td>{{chosenLtp.au}}</td>
-                                    <td>{{chosenLtp.vw}}</td><td>{{chosenLtp.cv}}</td><td>{{chosenLtp.sk}}</td><td>{{chosenLtp.se}}</td></tr>
-            </table></div></div>
-         </div><!-- /grid-b -->
+<div id="chosenLTP" data-title="Loan Tool Details" data-role="page" data-dialog="true">
+		<div data-role="header" data-position="fixed" data-theme="a">
+			<h1></h1>
+	      </div><!-- /header -->
+	    <div role="main" class="ui-content jqm-content">
+				<div class="ui-grid-a" style="">
+					<div class="ui-block-a"><div class="" >Category</div></div>
+				    <div class="ui-block-b"><div class="" >{{chosenLtp.icName}}</div></div>
+				 </div><!-- /grid-b -->
+				<div class="ui-grid-a" style="">
+					<div class="ui-block-a"><div class="" >LTP Kit Number</div></div>
+				    <div class="ui-block-b"><div class="" >{{chosenLtp.loanToolNo}}</div></div>
+				 </div><!-- /grid-b -->
+				 <div class="ui-grid-a" style="">
+				 	<div class="ui-block-a"><div class="" >Description</div></div>
+				    <div class="ui-block-b"><div class="" >{{chosenLtp.toolDescription}}</div></div>
+				 </div><!-- /grid-b -->
+				<div class="ui-grid-a" style="">
+					<div class="ui-block-a"><div class="" >Notes</div></div>
+				    <div class="ui-block-b"><div class="" >{{chosenLtp.commentary}}</div></div>
+				 </div><!-- /grid-b -->
+				<div class="ui-grid-a" style="">
+					<div class="ui-block-a"><div class="" >Order Number</div></div>
+				    <div class="ui-block-b"><div class="" >{{chosenLtp.orderPartNo}}</div></div>
+				 </div><!-- /grid-b -->
+				<div class="ui-grid-a" style="">
+					<div class="ui-block-a"><div class="" >Part Number</div></div>
+				    <div class="ui-block-b"><div class="" >{{chosenLtp.supplierPartNo}}</div></div>
+				 </div><!-- /grid-b -->
+				<!-- div class="ui-grid-a" style="">
+					<div class="ui-block-a"><div class="" >Next Available Date</div></div>
+				    <div class="ui-block-b"><div class="" >{{handleDate(chosenLtp.nextAvailableDate)}}</div></div>
+				 </div --><!-- /grid-b -->
+				<div class="ui-grid-a" style="">
+					<div class="ui-block-a"><div class="" >Kit Price: GBP</div></div>
+				    <div class="ui-block-b"><div class="" >{{chosenLtp.kitPrice | number}}</div></div>
+				 </div><!-- /grid-b -->
+				<div class="ui-grid-a" style="" ng-show="currentUser.role=='Manager'">
+					<div class="ui-block-a"><div class="" >Applicability</div></div>
+				    <div class="ui-block-b"><div class="" ><table>
+				    											<tr><th>AU </th><th>VW </th><th>CV </th><th>SK </th><th>SE </th></tr>
+				    											<tr><td>{{chosenLtp.au}}</td>
+				    												<td>{{chosenLtp.vw}}</td><td>{{chosenLtp.cv}}</td><td>{{chosenLtp.sk}}</td><td>{{chosenLtp.se}}</td></tr>
+				    </table></div></div>
+				 </div><!-- /grid-b -->
 
-        <!-- pre>{{chosenLtp | json}}</pre -->  
-          
-    </div>  
+				<!-- pre>{{chosenLtp | json}}</pre -->	
+         	
+		</div>	
 </div>
-
 
 
 
