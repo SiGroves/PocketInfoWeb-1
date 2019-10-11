@@ -214,6 +214,7 @@ Server: {{serverId}}
                 <td><img 
                     ng-src="https://toolsinfoweb.co.uk/mandatoryList/content/images/toolsList/{{imageName(useTool.toolType, useTool.partNumber, useTool.toolNumber)}}.png" 
                     class="toolImage img-zoom" 
+		    style="width:40px; height:40px"
                     onerror="this.src='https://toolsinfoweb.co.uk/mandatoryList/content/images/icons/rudeFileNotFound.png'; return false" /></td>   
                 <td>{{useTool.location}}<br/>{{useTool.toolCondition}}<br/>{{useTool.lastWIP}}</td>
                 <td><button id="btnDeleteTool" ng-click="removeTool(useTool);" class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all"></button></td>
@@ -270,9 +271,12 @@ Server: {{serverId}}
               <tr  ng-repeat="tool in wip.tools track by $index">
                 <td>{{tool.partNumber}}<br/>{{tool.toolNumber}}</td>
                 <td>{{tool.partDescription}}</td>
-                <td><img ng-src="https://toolsinfoweb.co.uk/mandatoryList/content/images/toolsList/{{imageName(tool.toolType, tool.partNumber, tool.toolNumber)}}.png" class="toolImage img-zoom" onerror="this.src='https://toolsinfoweb.co.uk/mandatoryList/content/images/icons/rudeFileNotFound.png'; return false" /></td>
+                <td><img 
+			 ng-src="https://toolsinfoweb.co.uk/mandatoryList/content/images/toolsList/{{imageName(tool.toolType, tool.partNumber, tool.toolNumber)}}.png" 
+			 class="toolImage img-zoom" 
+			 style="width:40px; height:40px"
+			 onerror="this.src='https://toolsinfoweb.co.uk/mandatoryList/content/images/icons/rudeFileNotFound.png'; return false" /></td>
                 <td>{{tool.location}}<br/>{{tool.lastWIP}}</td>
-
               </tr>
             </table>    
           </div>
